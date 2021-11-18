@@ -19,9 +19,9 @@ const AccordeonContainer = ({
     const [esperar, setEsperar] = useState(false)
 
     const deploy = async (folder, branch) => {
-        let testApi = `${UrlNodeServer.apiUrl}/${folder}`
+        let testApi = `${UrlNodeServer.apiUrl}/${folder}/api`
         if (branch === "test") {
-            testApi = `${UrlNodeServer.apiTestUrl}/${folder}`
+            testApi = `${UrlNodeServer.apiTestUrl}/${folder}/api`
         }
         const datos = {
             folder,
@@ -53,9 +53,9 @@ const AccordeonContainer = ({
     }
 
     const probar = async (folder, branch, proyect) => {
-        let testApi = `${UrlNodeServer.apiUrl}/${folder}`
+        let testApi = `${UrlNodeServer.apiUrl}/${folder}/api`
         if (branch === "test") {
-            testApi = `${UrlNodeServer.apiTestUrl}/${folder}`
+            testApi = `${UrlNodeServer.apiTestUrl}/${folder}/api`
         }
         setEsperar(true)
         await axios.get(testApi)
