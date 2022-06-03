@@ -19,7 +19,8 @@
 import React from "react";
 
 // reactstrap components
-import { Container, Row, Col, Nav, NavItem, NavLink } from "reactstrap";
+import { Row, Col } from "reactstrap";
+import moment from 'moment';
 
 class Footer extends React.Component {
   render() {
@@ -28,7 +29,7 @@ class Footer extends React.Component {
         <Row className="align-items-center justify-content-xl-between">
           <Col xl="6">
             <div className="copyright text-center text-xl-left text-muted">
-              © 2021{" "}
+              © {moment(new Date()).format("YYYY")}{" "}
               <a
                 className="font-weight-bold ml-1"
                 href="https://www.nekonet.com.ar"

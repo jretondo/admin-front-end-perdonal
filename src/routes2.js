@@ -1,6 +1,7 @@
 import Index from "views/admin/dashboard"
 import deployment from 'views/admin/deployment'
 import certificates from 'views/admin/certificates'
+import montly from 'views/admin/monthly';
 
 var routes = [
   {
@@ -22,6 +23,12 @@ var routes = [
     name: "Certificates",
     icon: "ni ni-tv-2 text-cyan",
     component: certificates,
+    layout: process.env.PUBLIC_URL + "/admin"
+  }, {
+    path: "/montly",
+    name: "Pagos Mensuales",
+    icon: "ni ni-tv-2 text-red",
+    component: montly,
     layout: process.env.PUBLIC_URL + "/admin"
   }
 ];
