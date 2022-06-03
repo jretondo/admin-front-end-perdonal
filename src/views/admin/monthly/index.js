@@ -7,14 +7,14 @@ import UrlNodeServer from '../../../api/NodeServer'
 import ButtonOpenCollapse from './customControls';
 import { useWindowSize } from 'Hooks/UseWindowSize';
 import FormAddNew from './components/formAddNew';
+import ParametrosMod from './components/parametros';
 
 
 const Montly = () => {
-    const [call, setCall] = useState(false)
     const [moduleActive, setModuleActive] = useState(0)
     const { loadingT, errorT } = UseSecureRoutes(
         UrlNodeServer.routes,
-        call
+        false
     )
     const width = useWindowSize()
 
@@ -43,12 +43,12 @@ const Montly = () => {
                                         <ButtonGroup vertical={width > 1030 ? false : true}>
                                             <ButtonOpenCollapse
                                                 action={() => setModuleActive(0)}
-                                                tittle={"Cargar Compromisos"}
+                                                tittle={"Carga"}
                                                 active={moduleActive === 0 ? true : false}
                                             />
                                             <ButtonOpenCollapse
                                                 action={() => setModuleActive(1)}
-                                                tittle={"Pagos por mes"}
+                                                tittle={"Pagos"}
                                                 active={moduleActive === 1 ? true : false}
                                             />
                                             <ButtonOpenCollapse
@@ -59,7 +59,12 @@ const Montly = () => {
                                             <ButtonOpenCollapse
                                                 action={() => setModuleActive(3)}
                                                 tittle={"Parametros"}
-                                                active={moduleActive === 2 ? true : false}
+                                                active={moduleActive === 3 ? true : false}
+                                            />
+                                            <ButtonOpenCollapse
+                                                action={() => setModuleActive(4)}
+                                                tittle={"Consultas"}
+                                                active={moduleActive === 4 ? true : false}
                                             />
                                         </ButtonGroup>
                                     </Col>
@@ -79,6 +84,9 @@ const Montly = () => {
 
                         </Collapse>
                         <Collapse isOpen={moduleActive === 3 ? true : false} >
+                            <ParametrosMod />
+                        </Collapse>
+                        <Collapse isOpen={moduleActive === 4 ? true : false} >
 
                         </Collapse>
                     </div>

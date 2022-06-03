@@ -2,7 +2,7 @@ require('dotenv').config()
 
 var host = ""
 if (process.env.NODE_ENV === "development") {
-    host = "https://api-prod.nekoadmin.com.ar/jretondo"
+    host = "http://localhost:3000/api"
 } else {
     host = "https://api-prod.nekoadmin.com.ar/jretondo"
 }
@@ -21,6 +21,17 @@ const auth = host + "/auth"
 const routes = host + "/routes"
 const apiTestUrl = "https://api-test.nekoadmin.com.ar"
 const apiUrl = "https://api-prod.nekoadmin.com.ar"
+const monthlyRoute = host + "/monthly"
+const paramRoutes = host + "/param"
+const monthly = {
+    index: monthlyRoute,
+    list: monthlyRoute + "/list"
+}
+const param = {
+    index: paramRoutes,
+    list: paramRoutes + "/list"
+}
+
 
 const UrlNodeServer = {
     user,
@@ -30,7 +41,9 @@ const UrlNodeServer = {
     certificates,
     test,
     apiTestUrl,
-    apiUrl
+    apiUrl,
+    monthly,
+    param
 }
 
 export default UrlNodeServer
